@@ -1,0 +1,47 @@
+{
+  "name": "agilecrm",
+  "version": "1.0.0",
+  "description": "Rest calls to AgileCRM",
+  "main": "agilecrm.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://phelipemaia@bitbucket.org/aiamlabs/agilecrm-node-api.git"
+  },
+  "keywords": [
+    "agilecrm"
+  ],
+  "author": {
+    "name": "Phelipe Maia"
+  },
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/aiamlabs/agilecrm-node-api#readme",
+  "gitHead": "ae9ebc2df9c559bab6954db605c98a5021858a24",
+  "_id": "agilecrm@1.0.0",
+  "_shasum": "e90f04d47604290f0308a1047d6b135d1eaf6528",
+  "_from": "agilecrm@*",
+  "_npmVersion": "2.14.12",
+  "_nodeVersion": "4.2.6",
+  "_npmUser": {
+    "name": "phelipemaia",
+    "email": "phelipemaia@gmail.com"
+  },
+  "dist": {
+    "shasum": "e90f04d47604290f0308a1047d6b135d1eaf6528",
+    "tarball": "http://registry.npmjs.org/agilecrm/-/agilecrm-1.0.0.tgz"
+  },
+  "maintainers": [
+    {
+      "name": "phelipemaia",
+      "email": "phelipemaia@gmail.com"
+    }
+  ],
+  "_npmOperationalInternal": {
+    "host": "packages-9-west.internal.npmjs.com",
+    "tmp": "tmp/agilecrm-1.0.0.tgz_1455102530384_0.752127364045009"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/agilecrm/-/agilecrm-1.0.0.tgz"
+}
