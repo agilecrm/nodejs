@@ -11,35 +11,54 @@ var error = function (data) {
     console.log(data);
 	console.log("Hii");
 };
- //obj.contactAPI.getListContacts(success, error);
-
-//obj.contactAPI.getContactByEmail('support+id18200@agilecrm.zendesk.com', success, error);
+ //obj.contactAPI.getContactByEmail('support+id18200@agilecrm.zendesk.com', success, error);
 
 //obj.contactAPI.getContactById('5736096881180672', success, error);
 
 var contact = {
-	"id": "5764169861169152",
-    'tags': ['tag1', 'tag3'],
-    'lead_score': 20,
-    'star_value': 40,
-    'properties': [{
-        'name': 'first_name',
-        'value': 'Test',
-        'type': 'SYSTEM'
-    }]
+    "lead_score": "92",
+    "tags": [
+        "Lead",
+        "Likely Buyer"
+    ],
+    "properties": [
+        {
+            "type": "SYSTEM",
+            "name": "first_name",
+            "value": "Los "
+        },
+        {
+            "type": "SYSTEM",
+            "name": "email",
+            "subtype": "work",
+            "value": "sila@tester.com"
+        },
+        {
+            "type": "SYSTEM",
+            "name": "address",
+            "value": "{\"address\":\"225 George Street\",\"city\":\"NSW\",\"state\":\"Sydney\",\"zip\":\"2000\",\"country\":\"Australia\"}"
+        }
+    ]
 };
 
 //obj.contactAPI.add(contact, success, error);
-var systemField = [{
-    'name': 'first_name',
-    'value': 'ttt'
-}];
 
-var customField = [{
-    'name': 'test',
-    'value': 'ABC'
-}];
+var update_contact = {
+    "id": "5698936018829312",
+    "properties": [
+        {
+            "type": "SYSTEM",
+            "name": "first_name",
+            "value": "Losalitest"
+        },
+        {
+            "type": "SYSTEM",
+            "name": "last_name",
+            "value": "Lee"
+        }
+    ]
+};
 
-//obj.contactAPI.update(contact, success, error);
+//obj.contactAPI.update(update_contact, success, error);
 
-obj.contactAPI.deleteContact('5633009881448448', success, error);
+//obj.contactAPI.deleteContact('5633009881448448', success, error);
