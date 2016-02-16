@@ -181,69 +181,9 @@ ContactAPI.prototype.add = function add(contact, success, failure) {
 
 ContactAPI.prototype.update = function update(contact, success, failure) {
     var options = this.getOptions();
-    options.path = '/dev/api/contacts';
+    options.path = '/dev/api/contacts/edit-properties';
     options.method = 'PUT';
     options.headers['Content-Type'] = 'application/json';
-
-    var put = https.request(options, function(resp) {
-        resp.setEncoding('utf8');
-        var body = "";
-        resp.on('data', function(data) {
-            body += data;
-        });
-        resp.on('end', function() {
-            if (success) {
-                try {
-                    var contacts = JSON.parse(body);
-                    success(contacts);
-                } catch (ex) {
-                    failure(ex);
-                }
-            }
-        });
-        resp.on('error', function(e) {
-            if (failure) {
-                failure(e);
-            }
-        });
-    });
-
-    try {
-        var data = JSON.stringify(contact);
-        put.write(data);
-        put.end();
-    } catch (ex) {
-        failure(ex);
-    }
-};
-
-ContactAPI.prototype.updateById = function updateById(contactId, systemFields, customFields, success, failure) {
-    var options = this.getOptions();
-    options.path = '/dev/api/contacts';
-    options.method = 'PUT';
-    options.headers['Content-Type'] = 'application/json';
-
-    var properties = [];
-    for (var i = 0; i < systemFields.length; i++) {
-        if (!systemFields[i] || !systemFields[i].name || !systemFields[i].value) {
-            throw new Error('You must define name and value for each system field.');
-        }
-        systemFields[i].type = 'SYSTEM';
-        properties.push(systemFields[i]);
-    }
-
-    for (var i = 0; i < customFields.length; i++) {
-        if (!customFields[i] || !customFields[i].name || !customFields[i].value) {
-            throw new Error('You must define name and value for each custom field.');
-        }
-        customFields[i].type = 'CUSTOM';
-        properties.push(customFields[i]);
-    }
-
-    var contact = {
-        'id': contactId,
-        'properties': properties
-    };
 
     var put = https.request(options, function(resp) {
         resp.setEncoding('utf8');
