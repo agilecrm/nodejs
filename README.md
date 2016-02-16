@@ -116,6 +116,7 @@ obj.contactAPI.getContactById('5736096881180672', success, error);
 }
 ```
 
+
 ```javascript
   var AgileCRMManager = require("./agilecrm.js");
   var obj = new AgileCRMManager("DOMAIN", "KEY", "EMAIL");
@@ -155,4 +156,48 @@ obj.contactAPI.getContactById('5736096881180672', success, error);
 obj.contactAPI.add(contact, success, error);
 ``` 
 
+#### 1.4 To update a contact
 
+```javascript
+  var AgileCRMManager = require("./agilecrm.js");
+  var obj = new AgileCRMManager("DOMAIN", "KEY", "EMAIL");
+  var success = function (data) {
+    console.log(data);
+	};
+  var error = function (data) {
+    console.log(data);
+	};
+	
+  var update_contact = {
+    "id": "5698936018829312",
+    "properties": [
+        {
+            "type": "SYSTEM",
+            "name": "first_name",
+            "value": "Losalitest"
+        },
+        {
+            "type": "SYSTEM",
+            "name": "last_name",
+            "value": "Lee"
+        }
+    ]
+};
+
+obj.contactAPI.update(update_contact, success, error);
+``` 
+
+#### 1.5 To delete a contact
+
+```javascript
+  var AgileCRMManager = require("./agilecrm.js");
+  var obj = new AgileCRMManager("DOMAIN", "KEY", "EMAIL");
+  var success = function (data) {
+    console.log(data);
+	};
+  var error = function (data) {
+    console.log(data);
+	};
+	
+  obj.contactAPI.deleteContact('5633009881448448', success, error);
+``` 
