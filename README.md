@@ -114,7 +114,7 @@ obj.contactAPI.getContactById('5736096881180672', success, error);
         }
     ]
 }
-```javascript
+```
 
 ```javascript
   var AgileCRMManager = require("./agilecrm.js");
