@@ -62,3 +62,51 @@ var update_contact = {
 //obj.contactAPI.update(update_contact, success, error);
 
 //obj.contactAPI.deleteContact('5633009881448448', success, error);
+
+//obj.contactAPI.getDealById('5650703586426880', success, error);
+
+// Delete deal by id
+
+//obj.contactAPI.deleteDealById('5650703586426880', success, error);
+
+// Create Deal
+
+var deal = {
+    "name": "Deal-Tomato",
+    "expected_value": "500",
+    "probability": "75",
+    "close_date": 1455042600,
+    "milestone": "Proposal",
+    "contact_ids": [
+        "5758948741218304"
+    ],
+    "custom_data": [
+        {
+            "name": "Group Size",
+            "value": "10"
+        }
+    ]
+};
+
+
+//obj.contactAPI.createDeal(deal, success, error);
+
+var update_deal = {
+    "id": "5122047336251392",
+    "expected_value": "1000",
+    "contact_ids": [
+        "5675392618725376",
+        "5744178885558278"
+    ],
+    "custom_data": [
+        {
+            "name": "dealTester",
+            "value": "hello hello2"
+        }
+    ]
+};
+
+
+//obj.contactAPI.updateDeal(update_deal, success, error);
+
+//obj.contactAPI.getDealByContactId("5675392618725376", success, error);
