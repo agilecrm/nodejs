@@ -202,9 +202,9 @@ obj.contactAPI.update(update_contact, success, error);
   obj.contactAPI.deleteContact('5633009881448448', success, error);
 ``` 
 
-###1. Deal
+###2. Deal
 
-#### 1.1 To get a deal by deal ID
+#### 2.1 To get a deal by deal ID
 
 ```javascript
   var AgileCRMManager = require("./agilecrm.js");
@@ -219,7 +219,7 @@ obj.contactAPI.update(update_contact, success, error);
 obj.contactAPI.getDealById('5650703586426880', success, error);
 ``` 
 
-#### 1.2 To get deals by contact id
+#### 2.2 To get deals by contact id
 
 ```javascript
   var AgileCRMManager = require("./agilecrm.js");
@@ -234,7 +234,7 @@ obj.contactAPI.getDealById('5650703586426880', success, error);
 obj.contactAPI.getDealByContactId("5675392618725376", success, error);
 ``` 
 
-#### 1.3 To create a deal
+#### 2.3 To create a deal
 
 #### Acceptable request Representation:
 
@@ -288,7 +288,7 @@ obj.contactAPI.getDealByContactId("5675392618725376", success, error);
 obj.contactAPI.createDeal(deal, success, error);
 ``` 
 
-#### 1.4 To update a deal
+#### 2.4 To update a deal
 
 ```javascript
   var AgileCRMManager = require("./agilecrm.js");
@@ -319,7 +319,7 @@ obj.contactAPI.createDeal(deal, success, error);
 obj.contactAPI.updateDeal(update_deal, success, error);
 ``` 
 
-#### 1.5 To delete a deal
+#### 2.5 To delete a deal
 
 ```javascript
   var AgileCRMManager = require("./agilecrm.js");
