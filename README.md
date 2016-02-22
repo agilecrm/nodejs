@@ -1,21 +1,21 @@
 Agile CRM Node.js API
 =====================
 
-Agile CRM is a new breed CRM. You can sign up @ [AgileCRM.com](https://www.agilecrm.com).  
+Agile CRM is a new breed CRM. You can sign up @ [AgileCRM.com](https://my.agilecrm.com/register).  
 
 Requirements
 ------------
 
 1. Two files required agilecrm.js and test.js 
 
-2. Setting Domain Name and Api Key
+2. Setting Domain Name and API Key
 
-![Finding Domain name and api key] (https://github.com/agilecrm/c-sharp-api/blob/master/Agile_CRM_API_Key_New.jpg)
+![Finding Domain name and API Key] (https://github.com/agilecrm/c-sharp-api/blob/master/Agile_CRM_API_Key_New.jpg)
 
-In the above image, api key is present at the "Api & Analytics" tab at `https://mycompany.agilecrm.com/#analytics-code`.
+In the above image, API Key is present at the "API & Analytics" tab at `https://mycompany.agilecrm.com/#analytics-code`.
 
         Domain Name : mycompany
-        Api Key     : myagilecrmapikey
+        API Key     : myagilecrmapikey
 
 So you have to update your
 
@@ -48,7 +48,7 @@ API's Details
 obj.contactAPI.getContactByEmail('sample@agilecrm.com', success, error);
 ``` 
 
-#### 1.2 To get a contact by contact id
+#### 1.2 To get a contact by contact ID
 
 ```javascript
   var AgileCRMManager = require("./agilecrm.js");
@@ -201,3 +201,135 @@ obj.contactAPI.update(update_contact, success, error);
 	
   obj.contactAPI.deleteContact('5633009881448448', success, error);
 ``` 
+
+###1. Deal
+
+#### 1.1 To get a deal by deal ID
+
+```javascript
+  var AgileCRMManager = require("./agilecrm.js");
+  var obj = new AgileCRMManager("DOMAIN", "KEY", "EMAIL");
+  var success = function (data) {
+    console.log(data);
+	};
+  var error = function (data) {
+    console.log(data);
+	};
+	
+obj.contactAPI.getDealById('5650703586426880', success, error);
+``` 
+
+#### 1.2 To get deals by contact id
+
+```javascript
+  var AgileCRMManager = require("./agilecrm.js");
+  var obj = new AgileCRMManager("DOMAIN", "KEY", "EMAIL");
+  var success = function (data) {
+    console.log(data);
+	};
+  var error = function (data) {
+    console.log(data);
+	};
+	
+obj.contactAPI.getDealByContactId("5675392618725376", success, error);
+``` 
+
+#### 1.3 To create a deal
+
+#### Acceptable request Representation:
+
+```javascript
+{
+    "name": "Deal-Tomato",
+    "expected_value": "500",
+    "probability": "75",
+    "close_date": 1455042600,
+    "milestone": "Proposal",
+    "contact_ids": [
+        "5758948741218304"
+    ],
+    "custom_data": [
+        {
+            "name": "Group Size",
+            "value": "10"
+        }
+    ]
+}
+```
+
+
+```javascript
+  var AgileCRMManager = require("./agilecrm.js");
+  var obj = new AgileCRMManager("DOMAIN", "KEY", "EMAIL");
+  var success = function (data) {
+    console.log(data);
+	};
+  var error = function (data) {
+    console.log(data);
+	};
+	
+  var deal = {
+    "name": "Deal-Tomato",
+    "expected_value": "500",
+    "probability": "75",
+    "close_date": 1455042600,
+    "milestone": "Proposal",
+    "contact_ids": [
+        "5758948741218304"
+    ],
+    "custom_data": [
+        {
+            "name": "Group Size",
+            "value": "10"
+        }
+    ]
+};
+
+obj.contactAPI.createDeal(deal, success, error);
+``` 
+
+#### 1.4 To update a deal
+
+```javascript
+  var AgileCRMManager = require("./agilecrm.js");
+  var obj = new AgileCRMManager("DOMAIN", "KEY", "EMAIL");
+  var success = function (data) {
+    console.log(data);
+	};
+  var error = function (data) {
+    console.log(data);
+	};
+	
+  var update_deal = {
+    "id": "5122047336251392",
+    "expected_value": "1000",
+    "contact_ids": [
+        "5675392618725376",
+        "5744178885558278"
+    ],
+    "custom_data": [
+        {
+            "name": "dealTester",
+            "value": "hello hello2"
+        }
+    ]
+};
+
+
+obj.contactAPI.updateDeal(update_deal, success, error);
+``` 
+
+#### 1.5 To delete a deal
+
+```javascript
+  var AgileCRMManager = require("./agilecrm.js");
+  var obj = new AgileCRMManager("DOMAIN", "KEY", "EMAIL");
+  var success = function (data) {
+    console.log(data);
+	};
+  var error = function (data) {
+    console.log(data);
+	};
+	
+  obj.contactAPI.deleteDealById('5650703586426880', success, error);
+```
