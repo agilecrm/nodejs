@@ -50,7 +50,7 @@ So you have to update your
         console.log(data);
 	      };
 	      
-API's Details
+API's details
 -------------
 ###1. Contact
 
