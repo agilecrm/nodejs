@@ -1,4 +1,4 @@
-Agile CRM PHP API 
+Agile CRM Node JS API 
 =================
 
 [Agile CRM] (https://www.agilecrm.com/) is a new breed CRM software with sales and marketing automation.
