@@ -1,7 +1,28 @@
-Agile CRM Node.js API
-=====================
+Agile CRM PHP API 
+=================
 
-Agile CRM is a new breed CRM software with sales and marketing automation. You can sign up @ [AgileCRM.com](https://www.agilecrm.com/).  
+[Agile CRM] (https://www.agilecrm.com/) is a new breed CRM software with sales and marketing automation.
+
+Table of contents
+---------------
+
+**[Requirements](#requirements)**
+
+**[API's details](#apis-details)**
+
+**[1 Contact](#1-contact)**
+  * [1 To get a contact by email](#11-to-get-a-contact-by-email)
+  * [2 To get a contact by contact ID](#12-to-get-a-contact-by-contact-id)
+  * [3 To create a contact](#13-to-create-a-contact)
+  * [4 To update a contact](#14-to-update-a-contact)
+  * [5 To delete a contact](#15-to-delete-a-contact)
+
+**[2. Deal](#2-deal)**
+  * [1 To get a deal by deal ID](#21-to-get-a-deal-by-deal-id)
+  * [2 To get deals by contact id](#22-to-get-deals-by-contact-id)
+  * [3 To create a deal](#23-to-create-a-deal)
+  * [4 To update a deal](#24-to-update-a-deal)
+  * [5 To delete a deal](#25-to-delete-a-deal)
 
 Requirements
 ------------
