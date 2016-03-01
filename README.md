@@ -30,6 +30,14 @@ Table of contents
   * [3 Get note by contact ID](#33-get-note-by-contact-id)
   * [4 Delete a note by contact ID and note ID](#34-delete-a-note-by-contact-id-and-note-id)
 
+**[4. Task](#4-task)**
+  * [1 Create a task to a contact](#41-create-a-task-to-a-contact)
+  * [2 Create a task to a contact by email ID](#42-create-a-task-to-a-contact-by-email-id)
+  * [3 Update a task to a contact](#43-update-a-task-to-a-contact)
+  * [4 Get a task by task ID](#44-get-a-task-by-task-id)
+  * [5 Delete a task by task ID](#45-delete-a-task-by-task-id)
+
+
 Requirements
 ------------
 
