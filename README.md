@@ -443,3 +443,127 @@ obj.contactAPI.updateDeal(update_deal, success, error);
 	
   obj.contactAPI.deleteNoteById("5630286201094144","5754615706419200", success, error);
 ```
+
+###4. Task
+
+#### 4.1 Create a task to a contact
+
+- Task type accepeted value : CALL, EMAIL, FOLLOW_UP, MEETING, MILESTONE, SEND, TWEET, OTHER
+- Task priority_type accepeted value : HIGH, NORMAL, LOW
+- Task due accepeted value : epoch time in miliseconds
+
+```javascript
+  var AgileCRMManager = require("./agilecrm.js");
+  var obj = new AgileCRMManager("DOMAIN", "KEY", "EMAIL");
+  var success = function (data) {
+    console.log(data);
+	};
+  var error = function (data) {
+    console.log(data);
+	};
+	
+  var task = {
+    "subject": "test",
+    "contacts": [
+        "5630286201094144"
+    ],
+    "type": "EMAIL",
+    "priority_type": "HIGH",
+    "due": 11545245654
+  };
+
+
+  obj.contactAPI.createTask(task, success, error);
+```
+
+#### 4.2 Create a task to a contact by email ID
+
+- Task type accepeted value : CALL, EMAIL, FOLLOW_UP, MEETING, MILESTONE, SEND, TWEET, OTHER
+- Task priority_type accepeted value : HIGH, NORMAL, LOW
+- Task due accepeted value : epoch time in miliseconds
+
+```javascript
+  var AgileCRMManager = require("./agilecrm.js");
+  var obj = new AgileCRMManager("DOMAIN", "KEY", "EMAIL");
+  var success = function (data) {
+    console.log(data);
+	};
+	
+  var error = function (data) {
+    console.log(data);
+	};
+	
+  var task_email = {
+    "subject": "test email task",
+    "type": "EMAIL",
+    "priority_type": "HIGH",
+    "due": 11545245654
+  };
+
+
+  obj.contactAPI.createTaskByEmail("care@spicejet.com",task_email, success, error);
+```
+
+#### 4.3 Update a task to a contact
+
+- Task type accepeted value : CALL, EMAIL, FOLLOW_UP, MEETING, MILESTONE, SEND, TWEET, OTHER
+- Task priority_type accepeted value : HIGH, NORMAL, LOW
+- Task due accepeted value : epoch time in miliseconds
+
+```javascript
+  var AgileCRMManager = require("./agilecrm.js");
+  var obj = new AgileCRMManager("DOMAIN", "KEY", "EMAIL");
+  var success = function (data) {
+    console.log(data);
+	};
+	
+  var error = function (data) {
+    console.log(data);
+	};
+	
+  var update_task = {
+    "id": "5637588316585984",
+    "subject": "test updated",
+    "contacts": [
+        "5630286201094144"
+    ],
+    "type": "EMAIL",
+    "priority_type": "HIGH",
+    "due": 11545245654
+  };
+
+
+  obj.contactAPI.updateTask(update_task, success, error);
+```
+
+#### 4.4 Get a task by task ID
+
+```javascript
+  var AgileCRMManager = require("./agilecrm.js");
+  var obj = new AgileCRMManager("DOMAIN", "KEY", "EMAIL");
+  var success = function (data) {
+    console.log(data);
+	};
+	
+  var error = function (data) {
+    console.log(data);
+	};
+	
+  obj.contactAPI.getTaskById('5766696644116480', success, error);
+```
+
+#### 4.5 Delete a task by task ID
+
+```javascript
+  var AgileCRMManager = require("./agilecrm.js");
+  var obj = new AgileCRMManager("DOMAIN", "KEY", "EMAIL");
+  var success = function (data) {
+    console.log(data);
+	};
+	
+  var error = function (data) {
+    console.log(data);
+	};
+	
+  obj.contactAPI.deleteTaskById('5766696644116480', success, error);
+```
