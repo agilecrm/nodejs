@@ -110,3 +110,40 @@ var update_deal = {
 //obj.contactAPI.updateDeal(update_deal, success, error);
 
 //obj.contactAPI.getDealByContactId("5675392618725376", success, error);
+
+// ==================To create a note of contact========================
+
+var note = {
+    "subject": " Note subject",
+    "description": "Note description",
+    "contact_ids": [
+        "5688267051630592",
+        "5721389839417344"
+    ]
+};
+
+
+//obj.contactAPI.createNote(note, success, error);
+
+// ==================To update a note of contact========================
+
+var update_note = {
+    "id": "5754615706419200",
+    "subject": "Test",
+    "description": "Sample test updated1",
+    "contact_ids": [
+        "5630286201094144"
+    ]
+};
+
+
+//obj.contactAPI.updateNote(update_note, success, error);
+
+// ==================To get notes of a contact by contact id========================
+
+//obj.contactAPI.getNoteByContactId("5630286201094144", success, error);
+
+// ==================To delete a note of a contact========================
+// first parameter is contact id and second one is note id
+
+//obj.contactAPI.deleteNoteById("5630286201094144","5754615706419200", success, error);
