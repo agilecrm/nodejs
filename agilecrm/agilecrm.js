@@ -584,4 +584,189 @@ ContactAPI.prototype.deleteNoteById = function deleteNoteById(contactId,noteId, 
     }
 };
 
+ContactAPI.prototype.createTask = function createTask(task, success, failure) {
+    var options = this.getOptions();
+    options.path = '/dev/api/tasks';
+    options.method = 'POST';
+    options.headers['Content-Type'] = 'application/json';
+
+    var post = https.request(options, function(resp) {
+        resp.setEncoding('utf8');
+        var body = "";
+        resp.on('data', function(data) {
+            body += data;
+        });
+        resp.on('end', function() {
+            if (success) {
+                try {
+                    var task = JSON.parse(body);
+                    success(task);
+                } catch (ex) {
+                    failure(ex);
+                }
+            }
+        });
+        resp.on('error', function(e) {
+            if (failure) {
+                failure(e);
+            }
+        });
+    });
+
+    try {
+        var data = JSON.stringify(task);
+        post.write(data);
+        post.end();
+    } catch (ex) {
+        failure(ex);
+    }
+};
+
+ContactAPI.prototype.createTaskByEmail = function createTaskByEmail(email,task, success, failure) {
+    var options = this.getOptions();
+    options.path = '/dev/api/tasks/email/'+email;
+    options.method = 'POST';
+    options.headers['Content-Type'] = 'application/json';
+
+    var post = https.request(options, function(resp) {
+        resp.setEncoding('utf8');
+        var body = "";
+        resp.on('data', function(data) {
+            body += data;
+        });
+        resp.on('end', function() {
+            if (success) {
+                try {
+                    var task = JSON.parse(body);
+                    success(task);
+                } catch (ex) {
+                    failure(ex);
+                }
+            }
+        });
+        resp.on('error', function(e) {
+            if (failure) {
+                failure(e);
+            }
+        });
+    });
+
+    try {
+        var data = JSON.stringify(task);
+        post.write(data);
+        post.end();
+    } catch (ex) {
+        failure(ex);
+    }
+};
+
+ContactAPI.prototype.updateTask = function updateTask(task, success, failure) {
+    var options = this.getOptions();
+    options.path = '/dev/api/tasks/partial-update';
+    options.method = 'PUT';
+    options.headers['Content-Type'] = 'application/json';
+
+    var put = https.request(options, function(resp) {
+        resp.setEncoding('utf8');
+        var body = "";
+        resp.on('data', function(data) {
+            body += data;
+        });
+        resp.on('end', function() {
+            if (success) {
+                try {
+                    var task = JSON.parse(body);
+                    success(task);
+                } catch (ex) {
+                    failure(ex);
+                }
+            }
+        });
+        resp.on('error', function(e) {
+            if (failure) {
+                failure(e);
+            }
+        });
+    });
+
+    try {
+        var data = JSON.stringify(task);
+        put.write(data);
+        put.end();
+    } catch (ex) {
+        failure(ex);
+    }
+};
+
+ContactAPI.prototype.getTaskById = function getTaskById(taskId, success, failure) {
+    var options = this.getOptions();
+    options.path = '/dev/api/tasks/' + taskId;
+
+    https.get(options, function (resp) {
+        var body = "";
+        resp.on('data', function(data) {
+            body += data;
+        });
+        resp.on('end', function() {
+            if (success) {
+                if (body) {
+                    try {
+                        var task = JSON.parse(body);
+                        success(task);
+                    } catch (ex) {
+                        failure(ex);
+                    }
+                }
+            } else {
+                success({});
+            }
+        })
+        resp.on('error', function(e) {
+            if (failure) {
+                failure(e);
+            }
+        });
+    }).on("error", function(e){
+        if (failure) {
+            failure(e);
+        }
+    });
+};
+
+ContactAPI.prototype.deleteTaskById = function deleteTaskById(taskId, success, failure) {
+    var options = this.getOptions();
+    options.path = '/dev/api/tasks/' + taskId;
+    options.method = 'DELETE';
+	options.headers['Content-Type'] = 'application/json';
+
+    var del = https.request(options, function(resp) {
+        resp.setEncoding('utf8');
+        var body = "";
+        resp.on('data', function(data) {
+            body += data;
+        });
+        resp.on('end', function() {
+            if (success) {
+                try {
+                    
+                    success(body);
+                } catch (ex) {
+                    failure(ex);
+                }
+            }
+        });
+        resp.on('error', function(e) {
+            if (failure) {
+                failure(e);
+            }
+        });
+    });
+
+    try {
+        del.end();
+    } catch (ex) {
+        failure(ex);
+    }
+};
+
 module.exports = AgileCRMManager;
