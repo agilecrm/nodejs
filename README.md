@@ -354,3 +354,86 @@ obj.contactAPI.updateDeal(update_deal, success, error);
 	
   obj.contactAPI.deleteDealById('5650703586426880', success, error);
 ```
+
+###3. Note
+
+#### 3.1 Create a note to a contact
+
+```javascript
+  var AgileCRMManager = require("./agilecrm.js");
+  var obj = new AgileCRMManager("DOMAIN", "KEY", "EMAIL");
+  var success = function (data) {
+    console.log(data);
+	};
+  var error = function (data) {
+    console.log(data);
+	};
+	
+  var note = {
+    "subject": " Note subject",
+    "description": "Note description",
+    "contact_ids": [
+        "5688267051630592",
+        "5721389839417344"
+    ]
+  };
+
+  obj.contactAPI.createNote(note, success, error);
+```
+
+#### 3.2 Update a note to a contact
+
+```javascript
+  var AgileCRMManager = require("./agilecrm.js");
+  var obj = new AgileCRMManager("DOMAIN", "KEY", "EMAIL");
+  var success = function (data) {
+    console.log(data);
+	};
+  var error = function (data) {
+    console.log(data);
+	};
+	
+  var update_note = {
+    "id": "5754615706419200",
+    "subject": "Test",
+    "description": "Sample test updated1",
+    "contact_ids": [
+        "5630286201094144"
+    ]
+  };
+
+  obj.contactAPI.updateNote(update_note, success, error);
+```
+
+#### 3.3 Get note by contact ID
+
+```javascript
+  var AgileCRMManager = require("./agilecrm.js");
+  var obj = new AgileCRMManager("DOMAIN", "KEY", "EMAIL");
+  var success = function (data) {
+    console.log(data);
+	};
+  var error = function (data) {
+    console.log(data);
+	};
+	
+  obj.contactAPI.getNoteByContactId("5630286201094144", success, error);
+```
+
+#### 3.4 Delete a note by contact ID and note ID
+
+- Delete a note from a contact 
+- first parameter ID is contact and second one is note ID
+
+```javascript
+  var AgileCRMManager = require("./agilecrm.js");
+  var obj = new AgileCRMManager("DOMAIN", "KEY", "EMAIL");
+  var success = function (data) {
+    console.log(data);
+	};
+  var error = function (data) {
+    console.log(data);
+	};
+	
+  obj.contactAPI.deleteNoteById("5630286201094144","5754615706419200", success, error);
+```
