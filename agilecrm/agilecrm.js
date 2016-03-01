@@ -436,4 +436,152 @@ ContactAPI.prototype.deleteDealById = function deleteDealById(dealId, success, f
     }
 };
 
+ContactAPI.prototype.createNote = function createNote(note, success, failure) {
+    var options = this.getOptions();
+    options.path = '/dev/api/notes';
+    options.method = 'POST';
+    options.headers['Content-Type'] = 'application/json';
+
+    var post = https.request(options, function(resp) {
+        resp.setEncoding('utf8');
+        var body = "";
+        resp.on('data', function(data) {
+            body += data;
+        });
+        resp.on('end', function() {
+            if (success) {
+                try {
+                    var note = JSON.parse(body);
+                    success(note);
+                } catch (ex) {
+                    failure(ex);
+                }
+            }
+        });
+        resp.on('error', function(e) {
+            if (failure) {
+                failure(e);
+            }
+        });
+    });
+
+    try {
+        var data = JSON.stringify(note);
+        post.write(data);
+        post.end();
+    } catch (ex) {
+        failure(ex);
+    }
+};
+
+ContactAPI.prototype.updateNote = function updateNote(note, success, failure) {
+    var options = this.getOptions();
+    options.path = '/dev/api/notes';
+    options.method = 'PUT';
+    options.headers['Content-Type'] = 'application/json';
+
+    var put = https.request(options, function(resp) {
+        resp.setEncoding('utf8');
+        var body = "";
+        resp.on('data', function(data) {
+            body += data;
+        });
+        resp.on('end', function() {
+            if (success) {
+                try {
+                    var note = JSON.parse(body);
+                    success(note);
+                } catch (ex) {
+                    failure(ex);
+                }
+            }
+        });
+        resp.on('error', function(e) {
+            if (failure) {
+                failure(e);
+            }
+        });
+    });
+
+    try {
+        var data = JSON.stringify(note);
+        put.write(data);
+        put.end();
+    } catch (ex) {
+        failure(ex);
+    }
+};
+
+
+ContactAPI.prototype.getNoteByContactId = function getNoteByContactId(contactId, success, failure) {
+    var options = this.getOptions();
+    options.path = '/dev/api/contacts/' + contactId + '/notes';
+
+    https.get(options, function (resp) {
+        var body = "";
+        resp.on('data', function(data) {
+            body += data;
+        });
+        resp.on('end', function() {
+            if (success) {
+                if (body) {
+                    try {
+                        
+                        success(body);
+                    } catch (ex) {
+                        failure(ex);
+                    }
+                }
+            } else {
+                success({});
+            }
+        })
+        resp.on('error', function(e) {
+            if (failure) {
+                failure(e);
+            }
+        });
+    }).on("error", function(e){
+        if (failure) {
+            failure(e);
+        }
+    });
+};
+
+ContactAPI.prototype.deleteNoteById = function deleteNoteById(contactId,noteId, success, failure) {
+    var options = this.getOptions();
+    options.path = '/dev/api/contacts/' + contactId + '/notes/'+noteId;
+    options.method = 'DELETE';
+	options.headers['Content-Type'] = 'application/json';
+
+    var del = https.request(options, function(resp) {
+        resp.setEncoding('utf8');
+        var body = "";
+        resp.on('data', function(data) {
+            body += data;
+        });
+        resp.on('end', function() {
+            if (success) {
+                try {
+                    
+                    success(body);
+                } catch (ex) {
+                    failure(ex);
+                }
+            }
+        });
+        resp.on('error', function(e) {
+            if (failure) {
+                failure(e);
+            }
+        });
+    });
+
+    try {
+        del.end();
+    } catch (ex) {
+        failure(ex);
+    }
+};
+
 module.exports = AgileCRMManager;
