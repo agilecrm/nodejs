@@ -147,3 +147,54 @@ var update_note = {
 // first parameter is contact id and second one is note id
 
 //obj.contactAPI.deleteNoteById("5630286201094144","5754615706419200", success, error);
+
+// ==================Create task to a contact========================
+
+var task = {
+    "subject": "test",
+    "contacts": [
+        "5630286201094144"
+    ],
+    "type": "EMAIL",
+    "priority_type": "HIGH",
+    "due": 11545245654
+};
+
+
+//obj.contactAPI.createTask(task, success, error);
+
+// ==================Create task to a contact by email========================
+
+var task_email = {
+    "subject": "test email task",
+    "type": "EMAIL",
+    "priority_type": "HIGH",
+    "due": 11545245654
+};
+
+
+//obj.contactAPI.createTaskByEmail("care@spicejet.com",task_email, success, error);
+
+// ==================Update task to a contact========================
+
+var update_task = {
+	"id": "5637588316585984",
+    "subject": "test updated",
+    "contacts": [
+        "5630286201094144"
+    ],
+    "type": "EMAIL",
+    "priority_type": "HIGH",
+    "due": 11545245654
+};
+
+
+//obj.contactAPI.updateTask(update_task, success, error);
+
+// ==================Get task by ID========================
+
+//obj.contactAPI.getTaskById('5766696644116480', success, error);
+
+// ==================Delete task by ID========================
+
+obj.contactAPI.deleteTaskById('5766696644116480', success, error);
