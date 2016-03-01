@@ -24,6 +24,12 @@ Table of contents
   * [4 To update a deal](#24-to-update-a-deal)
   * [5 To delete a deal](#25-to-delete-a-deal)
 
+**[3. Note](#3-note)**
+  * [1 Create a note to a contact](#31-create-a-note-to-a-contact)
+  * [2 Update a note to a contact](#32-update-a-note-to-a-contact)
+  * [3 Get note by contact ID](#33-get-note-by-contact-id)
+  * [4 Delete a note by contact ID and note ID](#34-delete-a-note-by-contact-id-and-note-id)
+
 Requirements
 ------------
 
