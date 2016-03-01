@@ -202,8 +202,8 @@ obj.contactAPI.add(contact, success, error);
   var error = function (data) {
     console.log(data);
 	};
-	
-  var update_contact = {
+```json	
+  var update_contact = '{
     "id": "5698936018829312",
     "properties": [
         {
@@ -217,8 +217,8 @@ obj.contactAPI.add(contact, success, error);
             "value": "Lee"
         }
     ]
-};
-
+}'
+```
 obj.contactAPI.update(update_contact, success, error);
 ``` 
 
