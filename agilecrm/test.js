@@ -2,7 +2,7 @@
  * Created by phelipemaia on 2/7/16.
  */
 var AgileCRMManager = require("./agilecrm.js");
-var obj = new AgileCRMManager("ghanshyam", "123456", "ghanshyam.raut@agilecrm.com");
+var obj = new AgileCRMManager("your_domain", "rest_api_key", "your_email_id");
 var success = function (data) {
     console.log(data);
 	console.log("hello");
