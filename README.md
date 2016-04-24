@@ -41,7 +41,10 @@ Table of contents
 Requirements
 ------------
 
-1. Two files required agilecrm.js and test.js 
+1. Two files required agilecrm.js and test.js OR
+
+2. Installation
+-npm install agile_crm
 
 2. Setting Domain Name and API Key
 
