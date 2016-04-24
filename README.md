@@ -44,9 +44,12 @@ Requirements
 1. Two files required agilecrm.js and test.js OR
 
 2. Installation
--npm install agile_crm
 
-2. Setting Domain Name and API Key
+```javascript
+  $ npm install agile_crm
+```
+
+3. Setting Domain Name and API Key
 
 ![Finding Domain name and API Key] (https://github.com/agilecrm/c-sharp-api/blob/master/Agile_CRM_API_Key_New.jpg)
 
