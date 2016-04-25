@@ -6,7 +6,7 @@ Agile CRM Node JS API
 Table of contents
 ---------------
 
-**[NPM Install](#npm-install-agile-crm)**
+**[NPM Install](#npm-agile-crm-installation)**
 
 **[Requirements](#requirements)**
 
