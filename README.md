@@ -6,6 +6,8 @@ Agile CRM Node JS API
 Table of contents
 ---------------
 
+**[NPM Install](#npm-install-agile-crm)**
+
 **[Requirements](#requirements)**
 
 **[API's details](#apis-details)**
@@ -37,19 +39,19 @@ Table of contents
   * [4 Get a task by task ID](#44-get-a-task-by-task-id)
   * [5 Delete a task by task ID](#45-delete-a-task-by-task-id)
 
+NPM Agile CRM Installation
+--------------------------
+
+```javascript
+  $ npm install agile_crm
+```
 
 Requirements
 ------------
 
 1. Two files required agilecrm.js and test.js OR
 
-2. Installation
-
-```javascript
-  $ npm install agile_crm
-```
-
-3. Setting Domain Name and API Key
+2. Setting Domain Name and API Key
 
 ![Finding Domain name and API Key] (https://github.com/agilecrm/c-sharp-api/blob/master/Agile_CRM_API_Key_New.jpg)
 
