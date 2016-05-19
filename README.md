@@ -18,6 +18,8 @@ Table of contents
   * [3 To create a contact](#13-to-create-a-contact)
   * [4 To update a contact](#14-to-update-a-contact)
   * [5 To delete a contact](#15-to-delete-a-contact)
+  * [6 To update tags to a contact](#16-to-update-tags-to-a-contact)
+  * [7 To delete tags to a contact](#17-to-delete-tags-to-a-contact)
 
 **[2. Deal](#2-deal)**
   * [1 To get a deal by deal ID](#21-to-get-a-deal-by-deal-id)
