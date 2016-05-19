@@ -253,6 +253,82 @@ ContactAPI.prototype.deleteContact = function deleteContact(contactId, success, 
     }
 };
 
+ContactAPI.prototype.updateTagsById = function update(contact, success, failure) {
+    var options = this.getOptions();
+    options.path = '/dev/api/contacts/edit/tags';
+    options.method = 'PUT';
+    options.headers['Content-Type'] = 'application/json';
+
+    var put = https.request(options, function(resp) {
+        resp.setEncoding('utf8');
+        var body = "";
+        resp.on('data', function(data) {
+            body += data;
+        });
+        resp.on('end', function() {
+            if (success) {
+                try {
+                    var contacts = JSON.parse(body);
+                    success(contacts);
+                } catch (ex) {
+                    failure(ex);
+                }
+            }
+        });
+        resp.on('error', function(e) {
+            if (failure) {
+                failure(e);
+            }
+        });
+    });
+
+    try {
+        var data = JSON.stringify(contact);
+        put.write(data);
+        put.end();
+    } catch (ex) {
+        failure(ex);
+    }
+};
+
+ContactAPI.prototype.deleteTagsById = function update(contact, success, failure) {
+    var options = this.getOptions();
+    options.path = '/dev/api/contacts/delete/tags';
+    options.method = 'PUT';
+    options.headers['Content-Type'] = 'application/json';
+
+    var put = https.request(options, function(resp) {
+        resp.setEncoding('utf8');
+        var body = "";
+        resp.on('data', function(data) {
+            body += data;
+        });
+        resp.on('end', function() {
+            if (success) {
+                try {
+                    var contacts = JSON.parse(body);
+                    success(contacts);
+                } catch (ex) {
+                    failure(ex);
+                }
+            }
+        });
+        resp.on('error', function(e) {
+            if (failure) {
+                failure(e);
+            }
+        });
+    });
+
+    try {
+        var data = JSON.stringify(contact);
+        put.write(data);
+        put.end();
+    } catch (ex) {
+        failure(ex);
+    }
+};
+
 ContactAPI.prototype.createDeal = function createDeal(opportunity, success, failure) {
     var options = this.getOptions();
     options.path = '/dev/api/opportunity';
