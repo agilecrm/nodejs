@@ -241,6 +241,53 @@ obj.contactAPI.update(update_contact, success, error);
 	};
 	
   obj.contactAPI.deleteContact('5633009881448448', success, error);
+```
+
+#### 1.6 To update tags to a contact
+
+```javascript
+  var AgileCRMManager = require("./agilecrm.js");
+  var obj = new AgileCRMManager("DOMAIN", "KEY", "EMAIL");
+  var success = function (data) {
+    console.log(data);
+	};
+  var error = function (data) {
+    console.log(data);
+	};
+	
+  var update_tags = {
+    "id": "5671839405703168",
+    "tags": [
+        "test1",
+        "test2"
+    ]
+};
+
+
+obj.contactAPI.updateTagsById(update_tags, success, error);
+``` 
+
+#### 1.7 To delete tags to a contact
+
+```javascript
+  var AgileCRMManager = require("./agilecrm.js");
+  var obj = new AgileCRMManager("DOMAIN", "KEY", "EMAIL");
+  var success = function (data) {
+    console.log(data);
+	};
+  var error = function (data) {
+    console.log(data);
+	};
+	
+  var delete_tags = {
+    "id": "5671839405703168",
+    "tags": [
+        "test1"
+    ]
+};
+
+
+obj.contactAPI.deleteTagsById(delete_tags, success, error);
 ``` 
 
 ###2. Deal
