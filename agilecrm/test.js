@@ -5,13 +5,15 @@ var AgileCRMManager = require("./agilecrm.js");
 var obj = new AgileCRMManager("your_domain", "rest_api_key", "your_email_id");
 var success = function (data) {
     console.log(data);
-	console.log("hello");
+	console.log("success");
 };
 var error = function (data) {
     console.log(data);
-	console.log("Hii");
+	console.log("failure");
 };
- //obj.contactAPI.getContactByEmail('support+id18200@agilecrm.zendesk.com', success, error);
+
+
+//obj.contactAPI.getContactByEmail('support+id18200@agilecrm.zendesk.com', success, error);
 
 //obj.contactAPI.getContactById('5736096881180672', success, error);
 
@@ -197,4 +199,26 @@ var update_task = {
 
 // ==================Delete task by ID========================
 
-obj.contactAPI.deleteTaskById('5766696644116480', success, error);
+//obj.contactAPI.deleteTaskById('5766696644116480', success, error);
+
+
+var update_tags = {
+    "id": "5671839405703168",
+    "tags": [
+        "test1",
+        "test2"
+    ]
+};
+
+
+//obj.contactAPI.updateTagsById(update_tags, success, error);
+
+var delete_tags = {
+    "id": "5671839405703168",
+    "tags": [
+        "test1"
+    ]
+};
+
+
+//obj.contactAPI.deleteTagsById(delete_tags, success, error);
