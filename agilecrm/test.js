@@ -1,5 +1,5 @@
 /**
- * Created by phelipemaia on 2/7/16.
+ * Created by ghanshyam on 2/7/16.
  */
 var AgileCRMManager = require("./agilecrm.js");
 var obj = new AgileCRMManager("your_domain", "rest_api_key", "your_email_id");
@@ -222,3 +222,16 @@ var delete_tags = {
 
 
 //obj.contactAPI.deleteTagsById(delete_tags, success, error);
+
+// ================== Get Deal Source ========================
+
+//obj.contactAPI.getDealSource(success, error);
+
+
+// ================== Get Contacts/ Companies by Property Filter ========================
+
+//obj.contactAPI.getContactsByPropertyFilter('Country','United State',success, error);
+
+// ================== Get Contacts/ Companies by Tag Filter ========================
+
+//obj.contactAPI.getContactsByTagFilter('tester tag',success, error);
