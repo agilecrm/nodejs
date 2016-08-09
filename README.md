@@ -43,8 +43,8 @@ Table of contents
   * [5 Delete a task by task ID](#45-delete-a-task-by-task-id)
 
 **[5. Dynamic Filter](#5-dynamic-filter)**
-  * [1 Get contacts or companies by property](#41-create-a-task-to-a-contact)
-  * [2 Get contacts or companies by tag](#42-create-a-task-to-a-contact-by-email-id)
+  * [1 Get contacts or companies by property](#51-get-contacts-or-companies-by-property)
+  * [2 Get contacts or companies by tag](#52-get-contacts-or-companies-by-tag)
 
 
 NPM Agile CRM Installation
