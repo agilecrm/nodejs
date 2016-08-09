@@ -845,4 +845,184 @@ ContactAPI.prototype.deleteTaskById = function deleteTaskById(taskId, success, f
     }
 };
 
+
+// Change contact owner by contact ID and Owner ID
+
+ContactAPI.prototype.changeContactOwner = function update(email, contactId, success, failure) {
+
+	var qs = require("querystring");
+	// Build the post string from an object
+	  var post_data = qs.stringify({
+		  'owner_email' : email,
+		  'contact_id': contactId
+	  });
+ 
+    var options = this.getOptions();
+    options.path = '/dev/api/contacts/change-owner';
+
+    options.method = 'POST';
+    options.headers['Content-Type'] = 'application/x-www-form-urlencoded';
+	options.headers['Content-Length'] = Buffer.byteLength(post_data);
+
+    var put = https.request(options, function(resp) {
+        resp.setEncoding('utf8');
+        var body = "";
+        resp.on('data', function(data) {
+            body += data;
+        });
+        resp.on('end', function() {
+            if (success) {
+                try {
+                    var contacts = JSON.parse(body);
+                    success(contacts);
+                } catch (ex) {
+                    failure(ex);
+                }
+            }
+        });
+        resp.on('error', function(e) {
+            if (failure) {
+                failure(e);
+            }
+        });
+    });
+
+    try {
+        put.write(post_data);
+        put.end();
+    } catch (ex) {
+        failure(ex);
+    }
+};
+
+// Get Deal Source IDs
+
+ContactAPI.prototype.getDealSource = function getDealSource(success, failure) {
+    var options = this.getOptions();
+    options.path = '/dev/api/categories?entity_type=DEAL_SOURCE';
+
+    https.get(options, function (resp) {
+        var body = "";
+        resp.on('data', function(data) {
+            body += data;
+        });
+        resp.on('end', function() {
+            if (success) {
+                try {
+                    var dealSource = JSON.parse(body);
+                    success(dealSource);
+                } catch (ex) {
+                    failure(ex);
+                }
+            }
+        })
+        resp.on('error', function(e) {
+            if (failure) {
+                failure(e);
+            }
+        });
+    }).on("error", function(e){
+        if (failure) {
+            failure(e);
+        }
+    });
+};
+
+
+ContactAPI.prototype.getContactsByPropertyFilter = function getContactsByPropertyFilter(property,value,success, failure) {
+
+	var qs = require("querystring");
+	// Build the post string from an object
+	  var post_data = qs.stringify({
+		  'page_size' : 25,
+		  'global_sort_key': '-created_time',
+		  'filterJson': '{"rules":[{"LHS":"'+property+'","CONDITION":"EQUALS","RHS":"'+value+'"}],"contact_type":"PERSON"}'
+	  });
+ 
+    var options = this.getOptions();
+    options.path = '/dev/api/filters/filter/dynamic-filter';
+
+    options.method = 'POST';
+    options.headers['Content-Type'] = 'application/x-www-form-urlencoded';
+	options.headers['Content-Length'] = Buffer.byteLength(post_data);
+
+    var put = https.request(options, function(resp) {
+        resp.setEncoding('utf8');
+        var body = "";
+        resp.on('data', function(data) {
+            body += data;
+        });
+        resp.on('end', function() {
+            if (success) {
+                try {
+                    var contacts = JSON.parse(body);
+                    success(contacts);
+                } catch (ex) {
+                    failure(ex);
+                }
+            }
+        });
+        resp.on('error', function(e) {
+            if (failure) {
+                failure(e);
+            }
+        });
+    });
+
+    try {
+        put.write(post_data);
+        put.end();
+    } catch (ex) {
+        failure(ex);
+    }
+};
+
+ContactAPI.prototype.getContactsByTagFilter = function getContactsByTagFilter(value,success, failure) {
+
+	var qs = require("querystring");
+	// Build the post string from an object
+	  var post_data = qs.stringify({
+		  'page_size' : 25,
+		  'global_sort_key': '-created_time',
+		  'filterJson': '{"rules":[{"LHS":"tags","CONDITION":"EQUALS","RHS":"'+value+'"}],"contact_type":"PERSON"}'
+	  });
+ 
+    var options = this.getOptions();
+    options.path = '/dev/api/filters/filter/dynamic-filter';
+
+    options.method = 'POST';
+    options.headers['Content-Type'] = 'application/x-www-form-urlencoded';
+	options.headers['Content-Length'] = Buffer.byteLength(post_data);
+
+    var put = https.request(options, function(resp) {
+        resp.setEncoding('utf8');
+        var body = "";
+        resp.on('data', function(data) {
+            body += data;
+        });
+        resp.on('end', function() {
+            if (success) {
+                try {
+                    var contacts = JSON.parse(body);
+                    success(contacts);
+                } catch (ex) {
+                    failure(ex);
+                }
+            }
+        });
+        resp.on('error', function(e) {
+            if (failure) {
+                failure(e);
+            }
+        });
+    });
+
+    try {
+        put.write(post_data);
+        put.end();
+    } catch (ex) {
+        failure(ex);
+    }
+};
+
 module.exports = AgileCRMManager;
