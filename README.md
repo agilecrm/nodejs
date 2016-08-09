@@ -27,6 +27,7 @@ Table of contents
   * [3 To create a deal](#23-to-create-a-deal)
   * [4 To update a deal](#24-to-update-a-deal)
   * [5 To delete a deal](#25-to-delete-a-deal)
+  * [6 Get deal source](#26-get-deal-source)
 
 **[3. Note](#3-note)**
   * [1 Create a note to a contact](#31-create-a-note-to-a-contact)
@@ -40,6 +41,11 @@ Table of contents
   * [3 Update a task to a contact](#43-update-a-task-to-a-contact)
   * [4 Get a task by task ID](#44-get-a-task-by-task-id)
   * [5 Delete a task by task ID](#45-delete-a-task-by-task-id)
+
+**[5. Dynamic Filter](#5-dynamic-filter)**
+  * [1 Get contacts or companies by property](#41-create-a-task-to-a-contact)
+  * [2 Get contacts or companies by tag](#42-create-a-task-to-a-contact-by-email-id)
+
 
 NPM Agile CRM Installation
 --------------------------
@@ -424,6 +430,21 @@ obj.contactAPI.updateDeal(update_deal, success, error);
   obj.contactAPI.deleteDealById('5650703586426880', success, error);
 ```
 
+#### 2.6 Get deal source
+
+```javascript
+  var AgileCRMManager = require("./agilecrm.js");
+  var obj = new AgileCRMManager("DOMAIN", "KEY", "EMAIL");
+  var success = function (data) {
+    console.log(data);
+	};
+  var error = function (data) {
+    console.log(data);
+	};
+	
+  obj.contactAPI.getDealSource(success, error);
+```
+
 ###3. Note
 
 #### 3.1 Create a note to a contact
@@ -629,4 +650,36 @@ obj.contactAPI.updateDeal(update_deal, success, error);
 	};
 	
   obj.contactAPI.deleteTaskById('5766696644116480', success, error);
+```
+
+###5. Dynamic filter
+
+#### 5.1 Get contacts or companies by property
+
+```javascript
+  var AgileCRMManager = require("./agilecrm.js");
+  var obj = new AgileCRMManager("DOMAIN", "KEY", "EMAIL");
+  var success = function (data) {
+    console.log(data);
+	};
+  var error = function (data) {
+    console.log(data);
+	};
+	
+  obj.contactAPI.getContactsByPropertyFilter('Country','United State',success, error);
+```
+
+#### 5.2 Get contacts or companies by tag
+
+```javascript
+  var AgileCRMManager = require("./agilecrm.js");
+  var obj = new AgileCRMManager("DOMAIN", "KEY", "EMAIL");
+  var success = function (data) {
+    console.log(data);
+	};
+  var error = function (data) {
+    console.log(data);
+	};
+	
+  obj.contactAPI.getContactsByTagFilter('tester tag',success, error);
 ```
