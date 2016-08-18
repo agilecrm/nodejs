@@ -20,6 +20,7 @@ Table of contents
   * [5 To delete a contact](#15-to-delete-a-contact)
   * [6 To update tags to a contact](#16-to-update-tags-to-a-contact)
   * [7 To delete tags to a contact](#17-to-delete-tags-to-a-contact)
+  * [8 Change owner of a contact](#18-change-owner-of-a-contact)
 
 **[2. Deal](#2-deal)**
   * [1 To get a deal by deal ID](#21-to-get-a-deal-by-deal-id)
@@ -296,6 +297,21 @@ obj.contactAPI.updateTagsById(update_tags, success, error);
 
 
 obj.contactAPI.deleteTagsById(delete_tags, success, error);
+``` 
+
+#### 1.8 Change owner of a contact
+
+```javascript
+  var AgileCRMManager = require("./agilecrm.js");
+  var obj = new AgileCRMManager("DOMAIN", "KEY", "EMAIL");
+  var success = function (data) {
+    console.log(data);
+	};
+  var error = function (data) {
+    console.log(data);
+	};
+	
+ obj.contactAPI.changeContactOwner('tester@gmail.com','5650547373768704',success, error); 
 ``` 
 
 ###2. Deal
