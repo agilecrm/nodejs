@@ -1167,4 +1167,145 @@ ContactAPI.prototype.updateCustomField = function updateCustomField(customJson, 
     }
 };
 
+ContactAPI.prototype.createEvent = function createEvent(customJson, success, failure) {
+    var options = this.getOptions();
+    options.path = '/dev/api/events';
+    options.method = 'POST';
+    options.headers['Content-Type'] = 'application/json';
+
+    var put = https.request(options, function(resp) {
+        resp.setEncoding('utf8');
+        var body = "";
+        resp.on('data', function(data) {
+            body += data;
+        });
+        resp.on('end', function() {
+            if (success) {
+                try {
+                    console.log(resp.statusCode);
+                    var statusCode = resp.statusCode;
+                    if (statusCode != 200){
+                        console.log(body)
+                    }
+                    var customJson = JSON.parse(body);
+                    success(customJson);
+                } catch (ex) {
+                    failure(ex);
+                }
+            }
+        });
+        resp.on('error', function(e) {
+            if (failure) {
+                failure(e);
+            }
+        });
+    });
+
+    try {
+        var data = JSON.stringify(customJson);
+        put.write(data);
+        put.end();
+    } catch (ex) {
+        failure(ex);
+    }
+};
+
+ContactAPI.prototype.addTagstoContacts = function addTagstoContacts(tags,contactIds,success, failure) {
+	var qs = require("querystring");
+	// Build the post string from an object
+	  var post_data = qs.stringify({
+		  'data' : JSON.stringify(tags),
+		  'contact_ids': JSON.stringify(contactIds)
+	  });
+    var options = this.getOptions();
+    options.path = '/dev/api/bulk/update?action_type=ADD_TAG';
+
+    options.method = 'POST';
+    options.headers['Content-Type'] = 'application/x-www-form-urlencoded';
+	options.headers['Accept'] = '*/*';
+	options.headers['Content-Length'] = Buffer.byteLength(post_data);
+    var put = https.request(options, function(resp) {
+        resp.setEncoding('utf8');
+        var body = "";
+        resp.on('data', function(data) {
+            body += data;
+        });
+        resp.on('end', function() {
+            if (success) {
+                try {
+                    console.log("Status Code = " + resp.statusCode);
+                    var statusCode = resp.statusCode;
+                    if (statusCode != 204){
+                        console.log("Error message = " + body);
+                    }
+                    success("Tags updated");
+                } catch (ex) {
+                    failure(ex);
+                }
+            }
+        });
+        resp.on('error', function(e) {
+            if (failure) {
+                failure(e);
+            }
+        });
+    });
+
+    try {
+        put.write(post_data);
+        put.end();
+    } catch (ex) {
+        failure(ex);
+    }
+};
+
+ContactAPI.prototype.deleteTagstoContacts = function deleteTagstoContacts(tags,contactIds,success, failure) {
+	var qs = require("querystring");
+	// Build the post string from an object
+	  var post_data = qs.stringify({
+		  'data' : JSON.stringify(tags),
+		  'contact_ids': JSON.stringify(contactIds)
+	  });
+    var options = this.getOptions();
+    options.path = '/dev/api/bulk/update?action_type=REMOVE_TAG';
+
+    options.method = 'POST';
+    options.headers['Content-Type'] = 'application/x-www-form-urlencoded';
+	options.headers['Accept'] = '*/*';
+	options.headers['Content-Length'] = Buffer.byteLength(post_data);
+    var put = https.request(options, function(resp) {
+        resp.setEncoding('utf8');
+        var body = "";
+        resp.on('data', function(data) {
+            body += data;
+        });
+        resp.on('end', function() {
+            if (success) {
+                try {
+                    console.log("Status Code = " + resp.statusCode);
+                    var statusCode = resp.statusCode;
+                    if (statusCode != 204){
+                        console.log("Error message = " + body);
+                    }
+                    success("Tags deleted");
+                } catch (ex) {
+                    failure(ex);
+                }
+            }
+        });
+        resp.on('error', function(e) {
+            if (failure) {
+                failure(e);
+            }
+        });
+    });
+
+    try {
+        put.write(post_data);
+        put.end();
+    } catch (ex) {
+        failure(ex);
+    }
+};
+
 module.exports = AgileCRMManager;
