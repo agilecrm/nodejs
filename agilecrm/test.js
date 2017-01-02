@@ -235,3 +235,10 @@ var delete_tags = {
 // ================== Get Contacts/ Companies by Tag Filter ========================
 
 //obj.contactAPI.getContactsByTagFilter('tester tag',success, error);
+
+// Add or edit many tags to many contact.
+var tags =  ['kabali','happy'];
+var contactIds =  ['5760581046894592','5706412919357440'];
+console.log(tags);
+//obj.contactAPI.addTagstoContacts(tags,contactIds, success, error);
+//obj.contactAPI.deleteTagstoContacts(tags,contactIds, success, error);
