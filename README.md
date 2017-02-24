@@ -46,7 +46,7 @@ Table of contents
 **[5. Dynamic Filter](#5-dynamic-filter)**
   * [1 Get contacts by property](#51-get-contacts-by-property)
   * [2 Get contacts or companies by tag](#52-get-contacts-or-companies-by-tag)
-  * [3 Get companies by property](#51-get-companies-by-property)
+  * [3 Get companies by property](#53-get-companies-by-property)
 
 
 NPM Agile CRM Installation
