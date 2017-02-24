@@ -1308,4 +1308,54 @@ ContactAPI.prototype.deleteTagstoContacts = function deleteTagstoContacts(tags,c
     }
 };
 
+// Get Companies by custom field.
+
+ContactAPI.prototype.getCompaniesByPropertyFilter = function getCompaniesByPropertyFilter(property,value,success, failure) {
+
+	var qs = require("querystring");
+	// Build the post string from an object
+	  var post_data = qs.stringify({
+		  'page_size' : 25,
+		  'global_sort_key': '-created_time',
+		  'filterJson': '{"rules":[{"LHS":"'+property+'","CONDITION":"EQUALS","RHS":"'+value+'"}],"contact_type":"COMPANY"}'
+	  });
+ 
+    var options = this.getOptions();
+    options.path = '/dev/api/filters/filter/dynamic-filter';
+
+    options.method = 'POST';
+    options.headers['Content-Type'] = 'application/x-www-form-urlencoded';
+	options.headers['Content-Length'] = Buffer.byteLength(post_data);
+
+    var put = https.request(options, function(resp) {
+        resp.setEncoding('utf8');
+        var body = "";
+        resp.on('data', function(data) {
+            body += data;
+        });
+        resp.on('end', function() {
+            if (success) {
+                try {
+                    var contacts = JSON.parse(body);
+                    success(contacts);
+                } catch (ex) {
+                    failure(ex);
+                }
+            }
+        });
+        resp.on('error', function(e) {
+            if (failure) {
+                failure(e);
+            }
+        });
+    });
+
+    try {
+        put.write(post_data);
+        put.end();
+    } catch (ex) {
+        failure(ex);
+    }
+};
+
 module.exports = AgileCRMManager;
