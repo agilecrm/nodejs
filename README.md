@@ -44,8 +44,9 @@ Table of contents
   * [5 Delete a task by task ID](#45-delete-a-task-by-task-id)
 
 **[5. Dynamic Filter](#5-dynamic-filter)**
-  * [1 Get contacts or companies by property](#51-get-contacts-or-companies-by-property)
+  * [1 Get contacts by property](#51-get-contacts-by-property)
   * [2 Get contacts or companies by tag](#52-get-contacts-or-companies-by-tag)
+  * [3 Get companies by property](#51-get-companies-by-property)
 
 
 NPM Agile CRM Installation
@@ -670,7 +671,7 @@ obj.contactAPI.updateDeal(update_deal, success, error);
 
 ###5. Dynamic filter
 
-#### 5.1 Get contacts or companies by property
+#### 5.1 Get contacts by property
 
 ```javascript
   var AgileCRMManager = require("./agilecrm.js");
@@ -698,4 +699,19 @@ obj.contactAPI.updateDeal(update_deal, success, error);
 	};
 	
   obj.contactAPI.getContactsByTagFilter('tester tag',success, error);
+```
+
+#### 5.3 Get companies by property
+
+```javascript
+  var AgileCRMManager = require("./agilecrm.js");
+  var obj = new AgileCRMManager("DOMAIN", "KEY", "EMAIL");
+  var success = function (data) {
+    console.log(data);
+	};
+  var error = function (data) {
+    console.log(data);
+	};
+	
+  obj.contactAPI.getCompaniesByPropertyFilter('Custom Field Name','xyz120202',success, error);
 ```
