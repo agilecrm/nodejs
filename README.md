@@ -63,7 +63,7 @@ Requirements
 
 2. Setting Domain Name and API Key
 
-![Finding Domain name and API Key] (https://github.com/agilecrm/c-sharp-api/blob/master/Agile_CRM_API_Key_New.jpg)
+![Finding Domain name and API Key](https://github.com/agilecrm/c-sharp-api/blob/master/Agile_CRM_API_Key_New.jpg)
 
 In the above image, API Key is present at the "API & Analytics" tab at `https://mycompany.agilecrm.com/#analytics-code`.
 
