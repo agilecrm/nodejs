@@ -1,7 +1,7 @@
 Agile CRM Node JS API 
 =================
 
-[Agile CRM] (https://www.agilecrm.com/) is a new breed CRM software with sales and marketing automation.
+[Agile CRM](https://www.agilecrm.com/) is a new breed CRM software with sales and marketing automation.
 
 Table of contents
 ---------------
